@@ -4,7 +4,6 @@ Arbol::Arbol()
 {
     if (!objmodel_ptr)
     {
-
         objmodel_ptr = glmReadOBJ("Mountain.obj");
     }
     if (!objmodel_ptr)
@@ -16,7 +15,6 @@ Arbol::Arbol()
 
     if (!objmodel_ptr1)
     {
-
         objmodel_ptr1 = glmReadOBJ("nikto.obj");
     }
     if (!objmodel_ptr1)
@@ -28,7 +26,6 @@ Arbol::Arbol()
 
     if (!objmodel_ptr2)
     {
-
         objmodel_ptr2 = glmReadOBJ("tree.obj");
     }
     if (!objmodel_ptr2)
@@ -40,7 +37,6 @@ Arbol::Arbol()
 
     if (!objmodel_ptr3)
     {
-
         objmodel_ptr3 = glmReadOBJ("windmill.obj");
     }
     if (!objmodel_ptr3)
@@ -52,7 +48,6 @@ Arbol::Arbol()
 
     if (!objmodel_ptr4)
     {
-
         objmodel_ptr4 = glmReadOBJ("horse.obj");
     }
     if (!objmodel_ptr4)
@@ -61,6 +56,28 @@ Arbol::Arbol()
     glmUnitize(objmodel_ptr4);
     glmFacetNormals(objmodel_ptr4);
     glmVertexNormals(objmodel_ptr4, 90.0);
+
+    if (!objmodel_ptr5)
+    {
+        objmodel_ptr5 = glmReadOBJ("nube.obj");
+    }
+    if (!objmodel_ptr5)
+        exit(0);
+
+    glmUnitize(objmodel_ptr5);
+    glmFacetNormals(objmodel_ptr5);
+    glmVertexNormals(objmodel_ptr5, 90.0);
+
+    if (!objmodel_ptr6)
+    {
+        objmodel_ptr6 = glmReadOBJ("nube.obj");
+    }
+    if (!objmodel_ptr6)
+        exit(0);
+
+    glmUnitize(objmodel_ptr6);
+    glmFacetNormals(objmodel_ptr6);
+    glmVertexNormals(objmodel_ptr6, 90.0);
 }
 
 void Arbol::DibujarArbol(int i, float ax, float ay, float az)
@@ -105,6 +122,18 @@ void Arbol::DibujarArbol(int i, float ax, float ay, float az)
         glRotatef(90, 0, 1, 0);
         glRotatef(180, 0, 1, 0);
         glmDraw(objmodel_ptr4, GLM_SMOOTH | GLM_MATERIAL);
+    glPopMatrix();
+
+    //NUBE 1
+    glPushMatrix();
+        glTranslatef(-4.0f, 3.0f, az);
+        glmDraw(objmodel_ptr5, GLM_SMOOTH | GLM_MATERIAL);
+    glPopMatrix();
+
+    //NUBE 2
+    glPushMatrix();
+        glTranslatef(4.0f, 3.0f, az);
+        glmDraw(objmodel_ptr5, GLM_SMOOTH | GLM_MATERIAL);
     glPopMatrix();
 }
 
