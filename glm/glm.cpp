@@ -19,6 +19,9 @@
 #include <assert.h>
 #include "glm.h"
 
+#include <iostream>
+using namespace std;
+
 
 #define T(x) (model->triangles[(x)])
 
@@ -1311,33 +1314,33 @@ glmReadOBJ(char* filename)
             filename);
         exit(1);
     }
-    
+
     /* allocate a new model */
     model = (GLMmodel*)malloc(sizeof(GLMmodel));
-    model->pathname    = strdup(filename);
-    model->mtllibname    = NULL;
-    model->numvertices   = 0;
-    model->vertices    = NULL;
-    model->numnormals    = 0;
-    model->normals     = NULL;
-    model->numtexcoords  = 0;
-    model->texcoords       = NULL;
+    model->pathname = strdup(filename);
+    model->mtllibname = NULL;
+    model->numvertices = 0;
+    model->vertices = NULL;
+    model->numnormals = 0;
+    model->normals = NULL;
+    model->numtexcoords = 0;
+    model->texcoords = NULL;
     model->numfacetnorms = 0;
-    model->facetnorms    = NULL;
-    model->numtriangles  = 0;
-    model->triangles       = NULL;
-    model->nummaterials  = 0;
-    model->materials       = NULL;
-    model->numgroups       = 0;
-    model->groups      = NULL;
-    model->position[0]   = 0.0;
-    model->position[1]   = 0.0;
-    model->position[2]   = 0.0;
-    
+    model->facetnorms = NULL;
+    model->numtriangles = 0;
+    model->triangles = NULL;
+    model->nummaterials = 0;
+    model->materials = NULL;
+    model->numgroups = 0;
+    model->groups = NULL;
+    model->position[0] = 0.0;
+    model->position[1] = 0.0;
+    model->position[2] = 0.0;
+
     /* make a first pass through the file to get a count of the number
     of vertices, normals, texcoords & triangles */
     glmFirstPass(model, file);
-    
+
     /* allocate memory */
     model->vertices = (GLfloat*)malloc(sizeof(GLfloat) *
         3 * (model->numvertices + 1));
@@ -1351,15 +1354,15 @@ glmReadOBJ(char* filename)
         model->texcoords = (GLfloat*)malloc(sizeof(GLfloat) *
             2 * (model->numtexcoords + 1));
     }
-    
+
     /* rewind to beginning of file and read in the data this pass */
     rewind(file);
-    
+
     glmSecondPass(model, file);
-    
+
     /* close the file */
     fclose(file);
-    
+
     return model;
 }
 

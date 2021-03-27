@@ -4,11 +4,10 @@ Arbol::Arbol()
 {
         if (!objmodel_ptr)
         {
-
-            objmodel_ptr = glmReadOBJ("Mountain.obj");
+            objmodel_ptr = glmReadOBJ("mountain.obj");
         }
         if (!objmodel_ptr)
-                exit(0);
+            exit(0);
 
         glmUnitize(objmodel_ptr);
         glmFacetNormals(objmodel_ptr);
