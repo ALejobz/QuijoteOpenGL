@@ -13,6 +13,11 @@
 #include "Trian.h"
 #include "Tetera.h"
 #include "Arbol2.h"
+#include "Caballero.h"
+#include "Montana.h"
+#include "Molino.h"
+#include "Caballo.h"
+#include "Nube.h"
 
 //-----------------------------------------------------------------------------
 
@@ -22,11 +27,18 @@ class myWindow : public cwc::glutWindow
 protected:
    cwc::glShaderManager SM;
    cwc::glShader *shader;
+   cwc::glShader* shaderT;
    GLuint ProgramObject;
    clock_t time0,time1;
    float timer010;  // timer counting 0->1->0
    bool bUp;        // flag if counting up or down.
    Arbol saman;
+   Caballero caballero;
+   Montana montana;
+   Molino molino;
+   Caballo caballo;
+   Nube nube1;
+   Nube nube2;
    Tetera tete;
    Trian tri;
    Arbol2 trebol;
@@ -41,21 +53,31 @@ public:
 	
       //timer010 = 0.09; //for screenshot!
       glPushMatrix();
-      if (shader) shader->begin();
-         //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
-        glTranslatef(0.0f, 0.0f, -10.0f);
+          if (shader) shader->begin();
+                 //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
+                glTranslatef(0.0f, 0.0f, -10.0f);
+                saman.DibujarArbol(0,0.0,0.0,0.0);
+                
+                //CABALLERO
+                caballero.DibujarCaballero(0, 0.0, 0.0, 0.0);
 
-        saman.DibujarArbol(0,0.0,0.0,0.0);
+                //MONTANA
+                montana.DibujarMontana(0, 0.0, 0.0, 0.0);
 
+                //MOLINO
+                molino.DibujarMolino(0, 0.0, 0.0, 0.0);
 
-        //tri.DibujarTrian();
-        //tete.DibujarTetera();
-        //trebol.DibujarArbol2();
+                //CABALLO
+                caballo.DibujarCaballo(0, 0.0, 0.0, 0.0);
 
+                //NUBE1
+                nube1.DibujarNube(0, -4.0f, 3.0f, 0.0f);
 
+                //NUBE2
+                nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
 
-      if (shader) shader->end();
-      glutSwapBuffers();
+          if (shader) shader->end();
+          glutSwapBuffers();
       glPopMatrix();
 
       UpdateTimer();
@@ -81,6 +103,8 @@ public:
          ProgramObject = shader->GetProgramObject();
       }
 
+        shaderT = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt");
+        
       time0 = clock();
       timer010 = 0.0f;
       bUp = true;
@@ -88,6 +112,12 @@ public:
       tri = Trian();
       tete = Tetera();
       trebol = Arbol2();
+      caballero = Caballero();
+      montana = Montana();
+      molino = Molino();
+      caballo = Caballo();
+      nube1 = Nube();
+      nube2 = Nube();
 
       DemoLight();
 

@@ -10,7 +10,7 @@
 class Arbol
 {
 	GLMmodel* objmodel_ptr = NULL;
-	GLMmodel* objmodel_ptr1 = NULL;
+	//GLMmodel* objmodel_ptr1 = NULL;
 	GLMmodel* objmodel_ptr2 = NULL;
 	GLMmodel* objmodel_ptr3 = NULL;
 	GLMmodel* objmodel_ptr4 = NULL;

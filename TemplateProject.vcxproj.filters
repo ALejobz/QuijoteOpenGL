@@ -90,6 +90,11 @@
     <ClInclude Include="..\glm.h">
       <Filter>glm</Filter>
     </ClInclude>
+    <ClInclude Include="Caballero.h" />
+    <ClInclude Include="Montana.h" />
+    <ClInclude Include="Molino.h" />
+    <ClInclude Include="Caballo.h" />
+    <ClInclude Include="Nube.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew\source\glew.c">
@@ -189,6 +194,11 @@
     <ClCompile Include="glm\glm.cpp">
       <Filter>glm</Filter>
     </ClCompile>
+    <ClCompile Include="Caballero.cpp" />
+    <ClCompile Include="Montana.cpp" />
+    <ClCompile Include="Molino.cpp" />
+    <ClCompile Include="Caballo.cpp" />
+    <ClCompile Include="Nube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="freeglut\source\freeglutdll.def">
@@ -198,5 +208,7 @@
   <ItemGroup>
     <Text Include="fragmentshader.txt" />
     <Text Include="vertexshader.txt" />
+    <Text Include="fragmentshaderT.txt" />
+    <Text Include="vertexshaderT.txt" />
   </ItemGroup>
 </Project>

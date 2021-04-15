@@ -92,6 +92,8 @@
     <ClInclude Include="..\glm.h" />
     <ClInclude Include="Arbol.h" />
     <ClInclude Include="Arbol2.h" />
+    <ClInclude Include="Caballero.h" />
+    <ClInclude Include="Caballo.h" />
     <ClInclude Include="cwc\include\glApplication.h" />
     <ClInclude Include="cwc\include\glsl.h" />
     <ClInclude Include="cwc\include\glutwindow.h" />
@@ -105,12 +107,17 @@
     <ClInclude Include="glew\include\Gl\glew.h" />
     <ClInclude Include="glew\include\Gl\glxew.h" />
     <ClInclude Include="glew\include\Gl\wglew.h" />
+    <ClInclude Include="Molino.h" />
+    <ClInclude Include="Montana.h" />
+    <ClInclude Include="Nube.h" />
     <ClInclude Include="Tetera.h" />
     <ClInclude Include="Trian.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arbol.cpp" />
     <ClCompile Include="Arbol2.cpp" />
+    <ClCompile Include="Caballero.cpp" />
+    <ClCompile Include="Caballo.cpp" />
     <ClCompile Include="cwc\source\glApplication.cpp" />
     <ClCompile Include="cwc\source\glsl.cpp" />
     <ClCompile Include="cwc\source\glutwindow.cpp" />
@@ -140,6 +147,9 @@
     <ClCompile Include="glew\source\glew.c" />
     <ClCompile Include="glm\glm.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Molino.cpp" />
+    <ClCompile Include="Montana.cpp" />
+    <ClCompile Include="Nube.cpp" />
     <ClCompile Include="Tetera.cpp" />
     <ClCompile Include="Trian.cpp" />
   </ItemGroup>
@@ -148,7 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="fragmentshader.txt" />
+    <Text Include="fragmentshaderT.txt" />
     <Text Include="vertexshader.txt" />
+    <Text Include="vertexshaderT.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
