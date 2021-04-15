@@ -10,9 +10,6 @@
 #include "glsl.h"
 #include <time.h>
 #include "Arbol.h"
-#include "Trian.h"
-#include "Tetera.h"
-#include "Arbol2.h"
 #include "Caballero.h"
 #include "Montana.h"
 #include "Molino.h"
@@ -39,9 +36,6 @@ protected:
    Caballo caballo;
    Nube nube1;
    Nube nube2;
-   Tetera tete;
-   Trian tri;
-   Arbol2 trebol;
 
 
 public:
@@ -109,9 +103,6 @@ public:
       timer010 = 0.0f;
       bUp = true;
       saman = Arbol();
-      tri = Trian();
-      tete = Tetera();
-      trebol = Arbol2();
       caballero = Caballero();
       montana = Montana();
       molino = Molino();
