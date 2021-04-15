@@ -78,15 +78,6 @@
     <ClInclude Include="Arbol.h">
       <Filter>Clases</Filter>
     </ClInclude>
-    <ClInclude Include="Tetera.h">
-      <Filter>Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Trian.h">
-      <Filter>Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Arbol2.h">
-      <Filter>Clases</Filter>
-    </ClInclude>
     <ClInclude Include="..\glm.h">
       <Filter>glm</Filter>
     </ClInclude>
@@ -180,15 +171,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Arbol.cpp">
-      <Filter>Clases</Filter>
-    </ClCompile>
-    <ClCompile Include="Tetera.cpp">
-      <Filter>Clases</Filter>
-    </ClCompile>
-    <ClCompile Include="Trian.cpp">
-      <Filter>Clases</Filter>
-    </ClCompile>
-    <ClCompile Include="Arbol2.cpp">
       <Filter>Clases</Filter>
     </ClCompile>
     <ClCompile Include="glm\glm.cpp">
