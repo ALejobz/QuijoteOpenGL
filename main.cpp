@@ -15,6 +15,8 @@
 #include "Molino.h"
 #include "Caballo.h"
 #include "Nube.h"
+#include "plano.h"
+#define DELTA_X 0.01
 
 //-----------------------------------------------------------------------------
 
@@ -36,21 +38,44 @@ protected:
    Caballo caballo;
    Nube nube1;
    Nube nube2;
+   plano plane;
+   bool movX;
+   bool movXD;
+   float camX;
 
 
 public:
 	myWindow(){}
+
+    void posCamara()
+    {
+        if (movX == true)
+        {
+            camX = camX - DELTA_X;
+        }
+        if (movXD == true)
+        {
+            camX = camX + DELTA_X;
+        }
+
+
+    }
 
 	virtual void OnRender(void)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
       //timer010 = 0.09; //for screenshot!
-      glPushMatrix();
-          if (shader) shader->begin();
+        
+       
+        glPushMatrix();
+        if (shader) shader->begin();
                  //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
-                glTranslatef(0.0f, 0.0f, -10.0f);
-                saman.DibujarArbol(0,0.0,0.0,0.0);
+                posCamara();
+                glTranslatef(camX, 0.0f, -7.0f);
+
+                glPushMatrix();
+                //saman.DibujarArbol(0,0.0,0.0,0.0);
                 
                 //CABALLERO
                 caballero.DibujarCaballero(0, 0.0, 0.0, 0.0);
@@ -69,6 +94,10 @@ public:
 
                 //NUBE2
                 nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
+
+                //PLANO
+                plane.dibujarPlano(0, 0, 0, 0);
+                glPopMatrix();
 
           if (shader) shader->end();
           glutSwapBuffers();
@@ -109,8 +138,13 @@ public:
       caballo = Caballo();
       nube1 = Nube();
       nube2 = Nube();
+      plane = plano();
 
       DemoLight();
+
+      movX = false;
+      movXD = false;
+      camX = 0;
 
 	}
 
@@ -138,18 +172,47 @@ public:
 
 	virtual void OnKeyDown(int nKey, char cAscii)
 	{       
-		if (cAscii == 27) // 0x1b = ESC
+        switch (cAscii)
+        {
+            case 27:
+                this->Close(); // Close Window!;
+                break;
+
+            case 'a':
+                movX = true;
+                break;
+
+            case 'd':
+                movXD = true;
+                break;
+        }
+        
+		/*if (cAscii == 27) // 0x1b = ESC
 		{
 			this->Close(); // Close Window!
-		} 
+		} */
 	};
 
 	virtual void OnKeyUp(int nKey, char cAscii)
 	{
-      if (cAscii == 's')      // s: Shader
+
+        switch (cAscii)
+        {
+
+            case 'a':
+                movX = false;
+                break;
+
+            case 'd':
+                movXD = false;
+                break;
+        }
+
+
+      /*if (cAscii == 's')      // s: Shader
          shader->enable();
       else if (cAscii == 'f') // f: Fixed Function
-         shader->disable();
+         shader->disable();*/
 	}
 
    void UpdateTimer()
@@ -220,7 +283,7 @@ public:
      glLightfv(GL_LIGHT0, GL_AMBIENT, light_Ka);
      glLightfv(GL_LIGHT0, GL_DIFFUSE, light_Kd);
      glLightfv(GL_LIGHT0, GL_SPECULAR, light_Ks);
-
+     
      // -------------------------------------------
      // Material parameters:
 

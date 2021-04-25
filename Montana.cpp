@@ -19,11 +19,12 @@ void Montana::DibujarMontana(int i, float ax, float ay, float az)
     //MONTANA
     glPushMatrix();
         glScalef(10.0f, 10.0f, 10.0f);
-        glTranslatef(ax, ay, -9);
+        glTranslatef(ax, ay, -5);
         //glTranslatef(ax, ay, 3.0);
         glRotatef(90, 0, 1, 0);
         glRotatef(-90, 1, 0, 0);
-        glScalef(2, 2, 2);
+        glRotatef(-90, 0, 0, 1);
+        glScalef(5, 2, 2);
         glmDraw(objmodel_ptr, GLM_SMOOTH | GLM_MATERIAL);
     glPopMatrix();
 }

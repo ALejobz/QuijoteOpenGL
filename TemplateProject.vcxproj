@@ -109,6 +109,7 @@
     <ClInclude Include="Molino.h" />
     <ClInclude Include="Montana.h" />
     <ClInclude Include="Nube.h" />
+    <ClInclude Include="plano.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arbol.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Molino.cpp" />
     <ClCompile Include="Montana.cpp" />
     <ClCompile Include="Nube.cpp" />
+    <ClCompile Include="plano.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="freeglut\source\freeglutdll.def" />

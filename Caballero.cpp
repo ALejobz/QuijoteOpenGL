@@ -19,7 +19,7 @@ void Caballero::DibujarCaballero(int i, float ax, float ay, float az)
     //CABALLERO
     glPushMatrix();
         glScalef(0.4f, 0.4f, 0.4f);
-        glTranslatef(-12.5f, -5.0f, az);
+        glTranslatef(-3.5f, -5.0f, az);
         glRotatef(-90, 1, 0, 0);
         glmDraw(objmodel_ptr, GLM_SMOOTH | GLM_MATERIAL);
     glPopMatrix();

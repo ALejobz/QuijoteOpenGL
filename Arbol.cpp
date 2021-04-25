@@ -18,7 +18,8 @@ void Arbol::DibujarArbol(int i, float ax, float ay, float az)
 {
     //ARBOL
     glPushMatrix();
-        glTranslatef(-3.0f, -1.3f, az);
+        glTranslatef(2.0f, -1.3f, az);
+        glRotatef(-15, 0, 1, 0);
         glmDraw(objmodel_ptr2, GLM_SMOOTH | GLM_MATERIAL);
     glPopMatrix();
 }

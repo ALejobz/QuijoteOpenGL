@@ -19,7 +19,7 @@ void Caballo::DibujarCaballo(int i, float ax, float ay, float az)
     //CABALLO
     glPushMatrix();
         glScalef(0.5f, 0.5f, 0.5f);
-        glTranslatef(-8.25f, -3.7f, az);
+        glTranslatef(-3.0f, -3.7f, az);
         glRotatef(90, 0, 1, 0);
         glRotatef(180, 0, 1, 0);
         glmDraw(objmodel_ptr, GLM_SMOOTH | GLM_MATERIAL);
