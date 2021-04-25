@@ -87,6 +87,7 @@
     <ClInclude Include="Caballo.h" />
     <ClInclude Include="Nube.h" />
     <ClInclude Include="plano.h" />
+    <ClInclude Include="Caballo2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew\source\glew.c">
@@ -183,6 +184,7 @@
     <ClCompile Include="Caballo.cpp" />
     <ClCompile Include="Nube.cpp" />
     <ClCompile Include="plano.cpp" />
+    <ClCompile Include="Caballo2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="freeglut\source\freeglutdll.def">

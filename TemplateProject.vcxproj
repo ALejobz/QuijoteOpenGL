@@ -93,6 +93,7 @@
     <ClInclude Include="Arbol.h" />
     <ClInclude Include="Caballero.h" />
     <ClInclude Include="Caballo.h" />
+    <ClInclude Include="Caballo2.h" />
     <ClInclude Include="cwc\include\glApplication.h" />
     <ClInclude Include="cwc\include\glsl.h" />
     <ClInclude Include="cwc\include\glutwindow.h" />
@@ -115,6 +116,7 @@
     <ClCompile Include="Arbol.cpp" />
     <ClCompile Include="Caballero.cpp" />
     <ClCompile Include="Caballo.cpp" />
+    <ClCompile Include="Caballo2.cpp" />
     <ClCompile Include="cwc\source\glApplication.cpp" />
     <ClCompile Include="cwc\source\glsl.cpp" />
     <ClCompile Include="cwc\source\glutwindow.cpp" />

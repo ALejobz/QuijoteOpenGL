@@ -16,6 +16,7 @@
 #include "Caballo.h"
 #include "Nube.h"
 #include "plano.h"
+#include "Caballo2.h"
 #define DELTA_X 0.01
 
 //-----------------------------------------------------------------------------
@@ -35,10 +36,13 @@ protected:
    Caballero caballero;
    Montana montana;
    Molino molino;
+   Molino molino2;
+   Molino molino3;
    Caballo caballo;
    Nube nube1;
    Nube nube2;
    plano plane;
+   Caballo2 caba;
    bool movX;
    bool movXD;
    float camX;
@@ -67,7 +71,6 @@ public:
 	
       //timer010 = 0.09; //for screenshot!
         
-       
         glPushMatrix();
         if (shader) shader->begin();
                  //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
@@ -75,7 +78,9 @@ public:
                 glTranslatef(camX, 0.0f, -7.0f);
 
                 glPushMatrix();
-                //saman.DibujarArbol(0,0.0,0.0,0.0);
+                saman.DibujarArbol(0, 3.0f, -1.3f,0.0);
+                saman.DibujarArbol(0, -4.5f, -1.3f, -5.5);
+                saman.DibujarArbol(0, 8.5f, -1.3f, -6.5);
                 
                 //CABALLERO
                 caballero.DibujarCaballero(0, 0.0, 0.0, 0.0);
@@ -84,10 +89,15 @@ public:
                 montana.DibujarMontana(0, 0.0, 0.0, 0.0);
 
                 //MOLINO
-                molino.DibujarMolino(0, 0.0, 0.0, 0.0);
+                molino.DibujarMolino(0, -3.0f, -1.25f, 0.0);
+                molino2.DibujarMolino(0, -6.0f, -1.25f, -5.0);
+                molino2.DibujarMolino(0, 6.0f, -1.25f, -7.0);
+                molino2.DibujarMolino(0, 0.0f, -1.25f, -9.0);
+
 
                 //CABALLO
-                caballo.DibujarCaballo(0, 0.0, 0.0, 0.0);
+                //caballo.DibujarCaballo(0, 0.0, 0.0, 0.0);
+                caba.DibujarCaballo2(0, 0.0, 0.0, 0.0);
 
                 //NUBE1
                 nube1.DibujarNube(0, -4.0f, 3.0f, 0.0f);
@@ -135,10 +145,13 @@ public:
       caballero = Caballero();
       montana = Montana();
       molino = Molino();
+      molino2 = Molino();
+      molino3 = Molino();
       caballo = Caballo();
       nube1 = Nube();
       nube2 = Nube();
       plane = plano();
+      caba = Caballo2();
 
       DemoLight();
 

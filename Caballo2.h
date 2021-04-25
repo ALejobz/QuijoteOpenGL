@@ -6,15 +6,17 @@
 #include <iostream>
 #include "glsl.h"
 #include "glm/glm.h"
-class Caballo
+#define NUM_MALLAS 6
+
+class Caballo2
 {
-	GLMmodel* objmodel_ptr2 = NULL;
+	GLMmodel* objmodel_ptr = NULL;
 
 public:
-	Caballo();
+	Caballo2();
 
-	void DibujarCaballo(int i, float ax, float ay, float az);
+	void DibujarCaballo2(int i, float ax, float ay, float az);
 
-	~Caballo();
+	~Caballo2();
 };
 
