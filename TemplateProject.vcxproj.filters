@@ -202,5 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="textura_nube.jpg" />
+    <Image Include="captura.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="quijote_caballo.obj" />
   </ItemGroup>
 </Project>

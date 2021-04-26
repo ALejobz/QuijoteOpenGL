@@ -166,7 +166,11 @@
     <Text Include="vertexshaderT.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="captura.PNG" />
     <Image Include="textura_nube.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="quijote_caballo.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
