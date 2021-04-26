@@ -18,7 +18,7 @@ void Nube::DibujarNube(int i, float ax, float ay, float az)
     glPushMatrix();
         glTranslatef(ax, ay, az); //nube 1 ---- > -4.0f, 3.0f, az
                                   //nube 2 ---- > 4.0f, 3.0f, az
-        glmDraw(objmodel_ptr, GLM_SMOOTH | GLM_MATERIAL);
+        glmDraw(objmodel_ptr, GLM_SMOOTH | GLM_MATERIAL ); //| GLM_TEXTURE no quizo cargar nunca la textura jpg
     glPopMatrix();
 }
 Nube::~Nube()

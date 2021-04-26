@@ -8,7 +8,7 @@
 #include "glm/glm.h"
 class Caballo
 {
-	GLMmodel* objmodel_ptr2 = NULL;
+	GLMmodel* objmodel_ptr = NULL;
 
 public:
 	Caballo();

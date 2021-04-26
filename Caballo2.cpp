@@ -4,7 +4,8 @@ Caballo2::Caballo2()
 {
     if (!objmodel_ptr)
     {
-        objmodel_ptr = glmReadOBJ("horse.obj");
+        //objmodel_ptr = glmReadOBJ("horse.obj");
+        objmodel_ptr = glmReadOBJ("quijote_caballo.obj");
     }
     if (!objmodel_ptr)
         exit(0);

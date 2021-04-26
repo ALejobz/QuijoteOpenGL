@@ -17,10 +17,9 @@
 #include "Nube.h"
 #include "plano.h"
 #include "Caballo2.h"
+#include <FreeImage.h>
 #define DELTA_X 0.01
-
 //-----------------------------------------------------------------------------
-
 
 class myWindow : public cwc::glutWindow
 {
@@ -46,6 +45,7 @@ protected:
    bool movX;
    bool movXD;
    float camX;
+   GLuint texid;
 
 
 public:
@@ -65,12 +65,37 @@ public:
 
     }
 
+    /*void initialize_textures(void) {
+        int w, h;
+        GLubyte* data = 0;
+        //data = glmReadPPM("soccer_ball_diffuse.ppm", &w, &h);
+        ///std::cout << "Read soccer_ball_diffuse.ppm, width = " << w << ", height = " << h << std::endl;
+        //dib1 = loadImage("soccer_ball_diffuse.jpg");//FreeImage
+
+        glGenTextures(1, &texid);
+        glBindTexture(GL_TEXTURE_2D, texid);
+        glTexEnvi(GL_TEXTURE_2D, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        
+        // Loading JPG file
+        FIBITMAP* bitmap = FreeImage_Load(FreeImage_GetFileType("./textura_nube.jpg", 0), "./textura_nube.jpg"); //./textura_nube.jpg
+        FIBITMAP* pImage = FreeImage_ConvertTo32Bits(bitmap);
+        int nWidth = FreeImage_GetWidth(pImage);
+        int nHeight = FreeImage_GetHeight(pImage);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, nWidth, nHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, (void*)FreeImage_GetBits(pImage));
+        FreeImage_Unload(pImage);
+        
+        //
+        glEnable(GL_TEXTURE_2D);
+    }*/
+
 	virtual void OnRender(void)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
       //timer010 = 0.09; //for screenshot!
-        
+
         glPushMatrix();
         if (shader) shader->begin();
                  //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
@@ -78,10 +103,12 @@ public:
                 glTranslatef(camX, 0.0f, -7.0f);
 
                 glPushMatrix();
+                
                 saman.DibujarArbol(0, 3.0f, -1.3f,0.0);
                 saman.DibujarArbol(0, -4.5f, -1.3f, -5.5);
                 saman.DibujarArbol(0, 8.5f, -1.3f, -6.5);
                 
+
                 //CABALLERO
                 caballero.DibujarCaballero(0, 0.0, 0.0, 0.0);
 
@@ -94,9 +121,8 @@ public:
                 molino2.DibujarMolino(0, 6.0f, -1.25f, -7.0);
                 molino2.DibujarMolino(0, 0.0f, -1.25f, -9.0);
 
-
                 //CABALLO
-                //caballo.DibujarCaballo(0, 0.0, 0.0, 0.0);
+                caballo.DibujarCaballo(0, -2.0, 0.0, 0.0);
                 caba.DibujarCaballo2(0, 0.0, 0.0, 0.0);
 
                 //NUBE1
@@ -107,11 +133,34 @@ public:
 
                 //PLANO
                 plane.dibujarPlano(0, 0, 0, 0);
-                glPopMatrix();
+          glPopMatrix();
+
 
           if (shader) shader->end();
           glutSwapBuffers();
       glPopMatrix();
+
+      /*
+      glPushMatrix();
+          if (shaderT) shaderT->begin();
+          //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
+          //posCamara();
+          //glTranslatef(camX, 0.0f, -7.0f);
+
+          glPushMatrix();
+
+          //NUBE1
+          glBindTexture(GL_TEXTURE_2D, texid);
+          nube1.DibujarNube(0, -4.0f, 3.0f, 0.0f);
+
+          //NUBE2
+          //nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
+          glPopMatrix();
+
+          if (shaderT) shaderT->end();
+          glutSwapBuffers();
+      glPopMatrix();
+      */
 
       UpdateTimer();
 
@@ -124,6 +173,7 @@ public:
 	// is already available!
 	virtual void OnInit()
 	{
+
 		glClearColor(0.5f, 0.5f, 1.0f, 0.0f);
 		glShadeModel(GL_SMOOTH);
 		glEnable(GL_DEPTH_TEST);
@@ -131,12 +181,18 @@ public:
 		shader = SM.loadfromFile("vertexshader.txt","fragmentshader.txt"); // load (and compile, link) from file
 		if (shader==0) 
          std::cout << "Error Loading, compiling or linking shader\n";
-      else
-      {
-         ProgramObject = shader->GetProgramObject();
-      }
+        else
+        {
+           ProgramObject = shader->GetProgramObject();
+        }
 
-        shaderT = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt");
+        /*shaderT = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt");
+        if (shaderT == 0)
+            std::cout << "Error Loading, compiling or linking shader\n";
+        else
+        {
+            ProgramObject = shaderT->GetProgramObject();
+        }*/
         
       time0 = clock();
       timer010 = 0.0f;
@@ -153,6 +209,8 @@ public:
       plane = plano();
       caba = Caballo2();
 
+      
+      //initialize_textures();
       DemoLight();
 
       movX = false;
@@ -254,7 +312,7 @@ public:
      glEnable(GL_LIGHTING);
      glEnable(GL_LIGHT0);
      glEnable(GL_NORMALIZE);
-     
+     /*
      // Light model parameters:
      // -------------------------------------------
      
@@ -311,6 +369,7 @@ public:
      glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, material_Ks);
      glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, material_Ke);
      glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, material_Se);
+   */
    }
 };
 
