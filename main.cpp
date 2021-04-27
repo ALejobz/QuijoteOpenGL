@@ -65,7 +65,7 @@ public:
 
     }
 
-    /*void initialize_textures(void) {
+    void initialize_textures(void) {
         int w, h;
         GLubyte* data = 0;
         //data = glmReadPPM("soccer_ball_diffuse.ppm", &w, &h);
@@ -88,7 +88,7 @@ public:
         
         //
         glEnable(GL_TEXTURE_2D);
-    }*/
+    }
 
 	virtual void OnRender(void)
 	{
@@ -126,10 +126,10 @@ public:
                 caba.DibujarCaballo2(0, 0.0, 0.0, 0.0);
 
                 //NUBE1
-                nube1.DibujarNube(0, -4.0f, 3.0f, 0.0f);
+                //nube1.DibujarNube(0, -4.0f, 3.0f, 0.0f);
 
                 //NUBE2
-                nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
+                //nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
 
                 //PLANO
                 plane.dibujarPlano(0, 0, 0, 0);
@@ -137,11 +137,11 @@ public:
 
 
           if (shader) shader->end();
-          glutSwapBuffers();
-      glPopMatrix();
+          //glutSwapBuffers();
+      //glPopMatrix();
 
-      /*
-      glPushMatrix();
+      
+      //glPushMatrix();
           if (shaderT) shaderT->begin();
           //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
           //posCamara();
@@ -154,13 +154,14 @@ public:
           nube1.DibujarNube(0, -4.0f, 3.0f, 0.0f);
 
           //NUBE2
-          //nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
+          glBindTexture(GL_TEXTURE_2D, texid);
+          nube2.DibujarNube(0, 4.0f, 3.0f, 0.0f);
           glPopMatrix();
 
           if (shaderT) shaderT->end();
           glutSwapBuffers();
       glPopMatrix();
-      */
+      
 
       UpdateTimer();
 
@@ -186,13 +187,13 @@ public:
            ProgramObject = shader->GetProgramObject();
         }
 
-        /*shaderT = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt");
+        shaderT = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt");
         if (shaderT == 0)
             std::cout << "Error Loading, compiling or linking shader\n";
         else
         {
             ProgramObject = shaderT->GetProgramObject();
-        }*/
+        }
         
       time0 = clock();
       timer010 = 0.0f;
@@ -210,7 +211,7 @@ public:
       caba = Caballo2();
 
       
-      //initialize_textures();
+      initialize_textures();
       DemoLight();
 
       movX = false;
